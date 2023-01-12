@@ -32,8 +32,11 @@ public class Main {
     }
 
     private static <E extends Comparable<? super E>> void selectionSort(List<E> list) {
+        E temp;
+        int minIndex;
+
         for (int i = 0; i < list.size() - 1; i++) {
-            int minIndex = i;
+            minIndex = i;
 
             for (int j = minIndex + 1; j < list.size(); j++) {
                 int comparison = list.get(j).compareTo(list.get(minIndex));
@@ -46,7 +49,7 @@ public class Main {
                 continue;
             }
 
-            E temp = list.get(i);
+            temp = list.get(i);
             list.set(i, list.get(minIndex));
             list.set(minIndex, temp);
         }
