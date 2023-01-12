@@ -37,9 +37,9 @@ public class Main {
         }
     }
 
-    private static void printElements(ArrayList<Integer> numbers) {
-        for (int n : numbers) {
-            System.out.print(n + " ");
+    private static <E extends Comparable<? super E>> void printElements(List<E> list) {
+        for (E element : list) {
+            System.out.print(element + " ");
         }
         System.out.println();
     }
