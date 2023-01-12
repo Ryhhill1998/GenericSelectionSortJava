@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,12 +16,13 @@ public class Main {
         printElements(numbers);
     }
 
-    private static void selectionSort(ArrayList<Integer> numbers) {
-        for (int i = 0; i < numbers.size() - 1; i++) {
+    private static <E extends Comparable<? super E>> void selectionSort(List<E> list) {
+        for (int i = 0; i < list.size() - 1; i++) {
             int minIndex = i;
 
-            for (int j = minIndex + 1; j < numbers.size(); j++) {
-                if (numbers.get(j) < numbers.get(minIndex)) {
+            for (int j = minIndex + 1; j < list.size(); j++) {
+                int comparison = list.get(j).compareTo(list.get(minIndex));
+                if (comparison < 0) {
                     minIndex = j;
                 }
             }
@@ -29,9 +31,9 @@ public class Main {
                 continue;
             }
 
-            int temp = numbers.get(i);
-            numbers.set(i, numbers.get(minIndex));
-            numbers.set(minIndex, temp);
+            E temp = list.get(i);
+            list.set(i, list.get(minIndex));
+            list.set(minIndex, temp);
         }
     }
 
