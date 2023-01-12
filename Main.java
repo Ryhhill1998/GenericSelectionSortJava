@@ -14,6 +14,21 @@ public class Main {
         printElements(numbers);
         selectionSort(numbers);
         printElements(numbers);
+
+        System.out.println();
+
+        ArrayList<String> words = new ArrayList<>();
+        words.add("amazon");
+        words.add("lettuce");
+        words.add("forest");
+        words.add("alpha");
+        words.add("child");
+        words.add("turkey");
+        words.add("sloped");
+
+        printElements(words);
+        selectionSort(words);
+        printElements(words);
     }
 
     private static <E extends Comparable<? super E>> void selectionSort(List<E> list) {
