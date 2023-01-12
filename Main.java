@@ -1,17 +1,26 @@
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        int[] numbers = {4, 7, 3, 1, 9, 2};
+        ArrayList<Integer> numbers = new ArrayList<>();
+        numbers.add(4);
+        numbers.add(7);
+        numbers.add(3);
+        numbers.add(1);
+        numbers.add(9);
+        numbers.add(2);
+
         printElements(numbers);
         selectionSort(numbers);
         printElements(numbers);
     }
 
-    private static void selectionSort(int[] numbers) {
-        for (int i = 0; i < numbers.length - 1; i++) {
+    private static void selectionSort(ArrayList<Integer> numbers) {
+        for (int i = 0; i < numbers.size() - 1; i++) {
             int minIndex = i;
 
-            for (int j = minIndex + 1; j < numbers.length; j++) {
-                if (numbers[j] < numbers[minIndex]) {
+            for (int j = minIndex + 1; j < numbers.size(); j++) {
+                if (numbers.get(j) < numbers.get(minIndex)) {
                     minIndex = j;
                 }
             }
@@ -20,13 +29,13 @@ public class Main {
                 continue;
             }
 
-            int temp = numbers[i];
-            numbers[i] = numbers[minIndex];
-            numbers[minIndex] = temp;
+            int temp = numbers.get(i);
+            numbers.set(i, numbers.get(minIndex));
+            numbers.set(minIndex, temp);
         }
     }
 
-    private static void printElements(int[] numbers) {
+    private static void printElements(ArrayList<Integer> numbers) {
         for (int n : numbers) {
             System.out.print(n + " ");
         }
